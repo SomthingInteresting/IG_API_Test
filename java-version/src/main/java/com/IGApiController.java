@@ -3,6 +3,9 @@ package com;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.ResponseEntity;
+
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,4 +36,10 @@ public class IGApiController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    @GetMapping("/positions")
+    public ResponseEntity<List<Position>> getPositionsData() {
+        PositionResponse positionResponse = igApiService.getPositionsData();
+        return ResponseEntity.ok(positionResponse.getPositions());
+    }    
 }

@@ -19,6 +19,9 @@ public class IGApiService {
     @Value("${IG_PASSWORD}")
     private String igPassword;
 
+    private String clientSecurityToken;
+    private String xSecurityToken;
+
     public String getSessionData() {
         HttpHeaders headers = new HttpHeaders();
         headers.set("X-IG-API-KEY", igApiKey);
@@ -33,6 +36,36 @@ public class IGApiService {
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 
+        // Capture the security tokens from the response headers
+        if (response.getHeaders().containsKey("CST")) {
+            this.clientSecurityToken = response.getHeaders().get("CST").get(0);
+        }
+
+        if (response.getHeaders().containsKey("X-SECURITY-TOKEN")) {
+            this.xSecurityToken = response.getHeaders().get("X-SECURITY-TOKEN").get(0);
+        }
+
         return response.getBody();
     }
+
+    /**
+     * @return
+     */
+    public PositionResponse getPositionsData() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("X-IG-API-KEY", igApiKey);
+        headers.set("CST", clientSecurityToken);
+        headers.set("X-SECURITY-TOKEN", xSecurityToken);
+        headers.set("Content-Type", "application/json");
+    
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+    
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://demo-api.ig.com/gateway/deal/positions";
+    
+        ResponseEntity<PositionResponse> response = restTemplate.exchange(url, HttpMethod.GET, entity, PositionResponse.class);
+    
+        return response.getBody();
+    }    
 }
+
