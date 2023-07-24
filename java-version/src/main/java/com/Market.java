@@ -31,7 +31,29 @@ public class Market {
     @JsonProperty("marketStatus")
     private String marketStatus;
 
-    // other fields...
+    @JsonProperty("expiry")
+    private String expiry;
+
+    @JsonProperty("epic")
+    private String epic;
+
+    @JsonProperty("bid")
+    private Double bid;
+
+    @JsonProperty("offer")
+    private Double offer;
+
+    @JsonProperty("updateTime")
+    private String updateTime;
+
+    @JsonProperty("delayTime")
+    private int delayTime;
+
+    @JsonProperty("streamingPricesAvailable")
+    private boolean streamingPricesAvailable;
+
+    @JsonProperty("scalingFactor")
+    private int scalingFactor;
 
     // getters and setters...
 
