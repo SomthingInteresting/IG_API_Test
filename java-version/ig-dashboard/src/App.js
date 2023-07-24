@@ -29,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <h1>IG Dashboard</h1>
+      <h2>Account Info</h2>
       {account && (
         <>
           <p>Account Type: {account.accountType}</p>
@@ -42,7 +43,7 @@ function App() {
           <table className="positions-table">
             <thead>
               <tr>
-                <th>Instrument Name</th>
+                <th>Market</th>
                 <th>Contract Size</th>
                 <th>Direction</th>
               </tr>
