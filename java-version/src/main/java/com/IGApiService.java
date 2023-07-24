@@ -66,6 +66,24 @@ public class IGApiService {
         ResponseEntity<PositionResponse> response = restTemplate.exchange(url, HttpMethod.GET, entity, PositionResponse.class);
     
         return response.getBody();
-    }    
+    }
+
+    public void fetchAndLogRawPositionsData() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("X-IG-API-KEY", igApiKey);
+        headers.set("CST", clientSecurityToken);
+        headers.set("X-SECURITY-TOKEN", xSecurityToken);
+        headers.set("Content-Type", "application/json");
+    
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+    
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://demo-api.ig.com/gateway/deal/positions";
+    
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+    
+        // Log the raw response
+        System.out.println("Raw positions data from live server: " + response.getBody());
+    }
 }
 

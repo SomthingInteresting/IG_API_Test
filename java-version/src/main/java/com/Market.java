@@ -55,10 +55,6 @@ public class Market {
     @JsonProperty("scalingFactor")
     private int scalingFactor;
 
-    // getters and setters...
-
-    // ... existing getters and setters ...
-
     @Override
     public String toString() {
         return "Market{" +
@@ -71,7 +67,6 @@ public class Market {
                 ", netChange=" + netChange +
                 ", updateTimeUTC='" + updateTimeUTC + '\'' +
                 ", marketStatus='" + marketStatus + '\'' +
-                // add other fields similarly
                 '}';
     }
 }

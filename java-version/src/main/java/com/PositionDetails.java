@@ -25,12 +25,6 @@ public class PositionDetails {
     @JsonProperty("currency")
     private String currency;
 
-    // other fields...
-
-    // getters and setters...
-
-    // ... existing getters and setters ...
-
     @Override
     public String toString() {
         return "PositionDetails{" +
@@ -41,7 +35,6 @@ public class PositionDetails {
                 ", direction='" + direction + '\'' +
                 ", level=" + level +
                 ", currency='" + currency + '\'' +
-                // add other fields similarly
                 '}';
     }
 }
