@@ -15,7 +15,7 @@ html, body {
   color: white;
   background-color: #e01b1c;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   border-radius: 0px;
   margin: 0;
 }
@@ -23,7 +23,7 @@ html, body {
 .positions-table {
   margin-top: 20px;
   border-collapse: collapse;
-  width: 100%;
+  width: 30%;
 }
 
 .positions-table th, .positions-table td {
