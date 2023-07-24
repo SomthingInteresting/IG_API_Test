@@ -43,6 +43,7 @@ public class Account {
 class AccountInfo {
     
     private double balance;
+    private double profitLoss; // add this line
     // Other fields...
 
     public double getBalance() {
@@ -52,5 +53,15 @@ class AccountInfo {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    public double getProfitLoss() { // add this method
+        return profitLoss;
+    }
+
+    public void setProfitLoss(double profitLoss) { // add this method
+        this.profitLoss = profitLoss;
+    }
+
     // Other getters and setters...
 }
+

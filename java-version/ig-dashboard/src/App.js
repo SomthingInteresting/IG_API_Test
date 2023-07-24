@@ -19,10 +19,9 @@ function App() {
       <h1>IG Dashboard</h1>
       {account && (
         <>
-          <p>Account ID: {account.currentAccountId}</p>
           <p>Account Type: {account.accountType}</p>
           <p>Balance: {account.accountInfo.balance}</p>
-          {/* Add more fields as per your requirement */}
+          <p>Profit/Loss: {account.accountInfo.profitLoss}</p>
         </>
       )}
     </div>
