@@ -34,7 +34,7 @@ function App() {
         <>
           <p>Account Type: {account.accountType}</p>
           <p>Balance: £{account.accountInfo.balance}</p>
-          <p>Profit/Loss: {account.accountInfo.profitLoss}</p>
+          <p>Profit/Loss: £{account.accountInfo.profitLoss}</p>
         </>
       )}
       {positions && (
@@ -44,16 +44,16 @@ function App() {
             <thead>
               <tr>
                 <th>Market</th>
-                <th>Contract Size</th>
                 <th>Direction</th>
+                <th>Change</th>
               </tr>
             </thead>
             <tbody>
               {positions.map((position, index) => (
                 <tr key={index}>
                   <td>{position.market.instrumentName}</td>
-                  <td>{position.position.contractSize}</td>
                   <td>{position.position.direction}</td>
+                  <td>{position.market.percentageChange}%</td>
                 </tr>
               ))}
             </tbody>
