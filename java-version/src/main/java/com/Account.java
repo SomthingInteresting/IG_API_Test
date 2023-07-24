@@ -56,6 +56,7 @@ class AccountInfo {
     }
 
     public void setProfitLoss(double profitLoss) {
+        this.profitLoss = profitLoss;
     }
 }
 
