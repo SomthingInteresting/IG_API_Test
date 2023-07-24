@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './App.css';
 
 function App() {
   const [account, setAccount] = useState(null);
@@ -16,8 +17,8 @@ function App() {
 
       axios.get('http://localhost:8080/api/positions')
       .then(response => {
-        console.log(response.data); // log response data
-        setPositions(response.data); // response.data is an array of position objects
+        console.log(response.data);
+        setPositions(response.data);
       })
       .catch(error => {
         console.error('There was an error!', error);
@@ -38,14 +39,24 @@ function App() {
       {positions && (
         <>
           <h2>Positions</h2>
-          {positions.map((position, index) => (
-            <div key={index}>
-              <h3>{position.market.instrumentName}</h3>
-              <p>Contract Size: {position.position.contractSize}</p>
-              <p>Direction: {position.position.direction}</p>
-              {/* Display more data as desired */}
-            </div>
-          ))}
+          <table className="positions-table">
+            <thead>
+              <tr>
+                <th>Instrument Name</th>
+                <th>Contract Size</th>
+                <th>Direction</th>
+              </tr>
+            </thead>
+            <tbody>
+              {positions.map((position, index) => (
+                <tr key={index}>
+                  <td>{position.market.instrumentName}</td>
+                  <td>{position.position.contractSize}</td>
+                  <td>{position.position.direction}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </>
       )}
     </div>
