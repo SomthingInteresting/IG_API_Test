@@ -82,7 +82,6 @@ public class IGApiService {
     
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
     
-        // Log the raw response
         System.out.println("Raw positions data from live server: " + response.getBody());
     }
 }
