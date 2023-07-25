@@ -4,7 +4,10 @@ In this project we're going to test the IG Group API using Javascript first then
 
 We will solely focus on using the demo account for this project. You can find out more about the demo account [here](https://labs.ig.com/gettingstarted).
 
-The Javascript tests are written using Jest and the Java tests are written using JUnit 5.
+The Javascript tests will be written using Jest and the Java tests using JUnit 5.
+
+## Current Version Screenshot (Java)
+
 
 ## Table of Contents
 
@@ -44,9 +47,36 @@ Start the Server: node app.js
 You can now access the dashboard in your browser at http://localhost:3000.
 
 About this Project
+
+## Node Version
 This project is a simple web dashboard that displays account balance and profit/loss information from your IG Group account. The backend server is built with Node.js and Express, and makes requests to the IG Group API to fetch account data. This data is then served to the frontend, which is a simple HTML/CSS/JavaScript webpage that fetches the data from the backend and displays it on the dashboard.
 
 The server also serves static files for the frontend, which includes a basic CSS file for styling the dashboard, and a JavaScript file for fetching and displaying data from the server.
 
-Future Work
-We plan to extend this project to also use Java to interact with the IG Group API. We also aim to add more features to the dashboard, such as displaying historical data and real-time updates, as well as user authentication and handling for multiple accounts.
+Technologies Used:
+- Node.js
+- Express
+- JavaScript
+- HTML
+- CSS
+
+## Java Version
+This project is a simple web dashboard that displays account balance and profit/loss information from your IG Group account. The backend server is built with Java and Spring Boot, and makes requests to the IG Group API to fetch account data. This data is then served to the frontend, where React is used to fetch and display the data from the server.
+
+Technologies Used:
+- Java
+- Spring Boot
+- React
+- D3
+- Maven
+- CSS
+
+## Future Work
+
+Node Version
+- 
+
+Java Version
+- Explore other routes of the IG Group API and add more data to the dashboard.
+- Add more styling to the dashboard.
+- Add tests for the backend
