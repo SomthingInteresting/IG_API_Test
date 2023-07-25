@@ -7,6 +7,7 @@ We will solely focus on using the demo account for this project. You can find ou
 The Javascript tests will be written using Jest and the Java tests using JUnit 5.
 
 ## Current Version Screenshot (Java)
+![Screenshot 2023-07-25 at 09 23 32](https://github.com/SomthingInteresting/IG_API_Test/assets/122159337/50ee4832-9d97-4d6b-a3db-3576c1e7babb)
 
 
 ## Table of Contents
@@ -72,9 +73,6 @@ Technologies Used:
 - CSS
 
 ## Future Work
-
-Node Version
-- 
 
 Java Version
 - Explore other routes of the IG Group API and add more data to the dashboard.
