@@ -6,11 +6,11 @@ import * as d3 from 'd3';
 function App() {
   const [account, setAccount] = useState(null);
   const [positions, setPositions] = useState([]);
-  const svgRef = useRef(); // reference to the SVG element
+  const svgRef = useRef();
 
-  const margin = { top: 20, right: 20, bottom: 100, left: 50 };
-  const width = 800 - margin.left - margin.right;
-  const height = 500 - margin.top - margin.bottom;
+  const margin = { top: 30, right: 20, bottom: 60, left: 30 };
+  const width = 700 - margin.left - margin.right;
+  const height = 400 - margin.top - margin.bottom;
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/dashboard')
@@ -48,7 +48,6 @@ function App() {
         .domain([0, d3.max(positions, d => d.market.percentageChange)])
         .range([height, 0]);
 
-      // add the bars
       svg.selectAll('.bar')
         .data(positions)
         .enter()
@@ -59,7 +58,6 @@ function App() {
         .attr('y', d => yScale(d.market.percentageChange))
         .attr('height', d => height - yScale(d.market.percentageChange));
 
-      // add the labels
       svg.selectAll('.label')
         .data(positions)
         .enter()
@@ -70,16 +68,10 @@ function App() {
         .attr('text-anchor', 'middle')
         .text(d => d.market.instrumentName);
 
-      // add the axes
       svg.append('g')
         .attr('class', 'axis')
         .attr('transform', `translate(0, ${height})`)
-        .call(d3.axisBottom(xScale).tickFormat(i => positions[i].market.instrumentName))
-        .selectAll('text')
-        .attr('transform', 'rotate(-60)')
-        .attr('dx', '-.8em')
-        .attr('dy', '.15em')
-        .style('text-anchor', 'end');
+        .call(d3.axisBottom(xScale).tickValues([])); 
 
       svg.append('g')
         .attr('class', 'axis')
@@ -119,7 +111,9 @@ function App() {
               ))}
             </tbody>
           </table>
-          <svg ref={svgRef}></svg>
+          <div style={{marginTop: "20px", border: "1px solid #ccc", borderRadius: "5px", padding: "15px"}}>
+            <svg ref={svgRef}></svg>
+          </div>
         </>
       )}
     </div>
