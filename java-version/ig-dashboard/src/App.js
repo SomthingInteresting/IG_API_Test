@@ -87,7 +87,7 @@ function App() {
         <>
           <p>Account Type: {account.accountType}</p>
           <p>Balance: {new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(account.accountInfo.balance)}</p>
-          <p>Profit/Los: {new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(account.accountInfo.profitLoss)}</p>
+          <p>Profit/Loss: {new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(account.accountInfo.profitLoss)}</p>
         </>
       )}
       {positions && (
